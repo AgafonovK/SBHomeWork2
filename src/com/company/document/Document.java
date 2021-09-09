@@ -1,4 +1,4 @@
-package com.company;
+package com.company.document;
 
 public interface Document {
 
@@ -6,5 +6,5 @@ public interface Document {
     void print(boolean simpleKey);
 
     void printSimple();
-    
+
 }

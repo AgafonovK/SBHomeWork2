@@ -1,36 +1,17 @@
-package com.company;
+package com.company.document;
 
-
-public class HiredHROrder extends AbstractHRDocument implements Document {
+public class FiredHROrder extends AbstractHRDocument implements Document {
 
     private DocumentFields documentFields;
     private final Employee employee;
     private String textOrder;
     private StatusHROrder statusHROrder;
+    private String reasonFired;
 
-    public HiredHROrder(int numberDocument, String nameDocument, String employeeName, String employeeSecondname) {
-        this.employee = new Employee(employeeName, employeeSecondname);
-        this.documentFields = new DocumentFields(numberDocument,nameDocument);
-    }
+    public FiredHROrder(int numberDocuments, String nameDocuments, String employeeName, String employeeSecondname) {
+        this.documentFields = new DocumentFields(numberDocuments,nameDocuments);
+        this.employee = new Employee(employeeName,employeeSecondname);
 
-    public DocumentFields getDocumentFields() {
-        return documentFields;
-    }
-
-    public void setDocumentFields(DocumentFields documentFields) {
-        this.documentFields = documentFields;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public String getTextOrder() {
-        return textOrder;
-    }
-
-    public void setTextOrder(String textOrder) {
-        this.textOrder = textOrder;
     }
 
     public StatusHROrder getStatusHROrder() {
@@ -42,6 +23,30 @@ public class HiredHROrder extends AbstractHRDocument implements Document {
         this.statusHROrder = super.getStatusHROrder();
     }
 
+    public DocumentFields getDocumentFields() {
+        return documentFields;
+    }
+
+    public void setDocumentFields(DocumentFields documentFields) {
+        this.documentFields = documentFields;
+    }
+
+    public String getTextOrder() {
+        return textOrder;
+    }
+
+    public void setTextOrder(String textOrder) {
+        this.textOrder = textOrder;
+    }
+
+    public void setReasonFired(String reasonFired) {
+        this.reasonFired = reasonFired;
+    }
+
+    public String getReasonFired() {
+        return reasonFired;
+    }
+
     @Override
     public void print(boolean simpleKey) {
         if (!simpleKey) {
@@ -50,7 +55,8 @@ public class HiredHROrder extends AbstractHRDocument implements Document {
                     ",\n employeeName " + employee.getEmployeeName() +
                     ",\n employeeSecondName " + employee.getEmployeeSecondName() +
                     ",\n textOrder '" + textOrder + '\'' +
-                    ",\n statusHROrder " + statusHROrder);
+                    ",\n statusHROrder " + statusHROrder +
+                    ",\n reasonFired " + reasonFired);
         }else {
             printSimple();
         }
@@ -61,4 +67,6 @@ public class HiredHROrder extends AbstractHRDocument implements Document {
         System.out.println("Simple option: " + "\n DocumentName " + documentFields.getNameDocuments() +
                 ",\n documentNumber " +documentFields.getNumberDocuments());
     }
+
+
 }

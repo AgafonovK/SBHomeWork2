@@ -1,5 +1,10 @@
 package com.company;
 
+import com.company.document.FiredHROrder;
+import com.company.document.HiredHROrder;
+import com.company.document.Letter;
+import com.company.document.StatusHROrder;
+
 public class Main {
 
     public static void main(String[] args) {
